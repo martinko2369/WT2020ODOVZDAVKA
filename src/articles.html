@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ÄlÃ¡nky</title>
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <style>
+        .req{ border-color: red;}
+    </style>
+</head>
+<p>
+<div class="top-container">
+    <a href="home.html"><h1>Autoforum.sk</h1></a>
+    <p>Novinky, inzercia a fÃ³rum pod jednou strÃ¡nkou.</p>
+</div>
+<H2>ÄlÃ¡nky :</H2>
+<ul>
+<li><a href="article1.html" title="KaÅ¾dÃ¡ automobilka mÃ¡ obÄas zlÃ½ deÅ a podarÃ­ sa jej vypustiÅ¥ na trh auto, ktorÃ© by neskÃ´r najradÅ¡ej vymazala zo vÅ¡etkÃ½ch katalÃ³gov.">NajhorÅ¡ie auto na svete</a></li>
+<li><a href="article%202.html" title="Prezident spoloÄnosti Toyota EidÅ¾i Toyoda v roku 1983 vyzval svoju spoloÄnosÅ¥, aby zostrojila âautomobil, ktorÃ½ bude lepÅ¡Ã­ neÅ¾ tie najlepÅ¡ie autÃ¡ na...">Ako Toyota vyrobila najlepÅ¡ie auto na svete?</a></li>
+<li><a href="4x4.html" title="PrvÃ© sÃ©riovo vyrÃ¡banÃ© auto s pohonom prednÃ½ch kolies bolo v EurÃ³pe vÃ½chodiskom z nÃºdze.">PrednÃ½ pohon vznikol z nÃºdze</a></li></ul>
+<H2>VaÅ¡e komentÃ¡re : </H2>
+<div id="opinionsContainer" style="background-color: honeydew"></div>
+<H2>Zanechajte komentÃ¡r :</H2>
+<form id="myForm">
+    <br><label for="nameElm">VaÅ¡e meno:</label>
+    <input type="text" name="login" id="nameElm" size="20" maxlength="50" placeholder="Enter your name here" required/> <br>
+    Email :
+    <input type="email" name="email" id="emailElm" size="20" maxlength="50" placeholder="Enter your email here" /> <br>
+
+
+    ObrÃ¡zok :  <input type="url" name="url" id="url" size="20" maxlength="50" placeholder="Enter your image"/> <br>
+    VlastnÃ­te : <br>
+    <input type="radio" id="benzÃ­n" name="palivo" value="BenzÃ­n">
+    <label for="benzÃ­n">BenzÃ­n</label><br>
+    <input type="radio" id="nafta" name="palivo" value="Nafta">
+    <label for="nafta">Nafta</label><br>
+
+    ObÄ¾ÃºbenÃ© znaÄky :
+    <input type="checkbox" id="Lexus" />
+    <label for="Lexus">Lexus</label>
+    <input type="checkbox" id="BMW" />
+    <label for="BMW">BMW</label>
+    <input type="checkbox" id="Jaguar" />
+    <label for="Jaguar">Jaguar</label><br>
+
+
+    <label for="opnElm">VÃ¡Å¡ nÃ¡zor :</label><br>
+    <textarea name="comment" id="opnElm" cols="50" rows="3" placeholder="Express your opinion here" required></textarea>
+    <br>
+    <label for="keywords">KÄ¾ÃºÄovÃ© slovÃ¡:</label>
+
+    <select id="keywords">
+        <option value="">--ZvoÄ¾te--</option>
+        <option value="dog">Motory</option>
+        <option value="cat">ZÃ¡vody</option>
+        <option value="hamster">Recenzie</option>
+        <option value="parrot">novinky</option>
+    </select><br>
+    <div class="buttons">
+       <input type="reset" value="Reset">
+        <button type="submit">Send</button>
+        <button  type="button" onclick="clean()">zmazat</button>
+   </div>
+</form>
+<script id="template" type="text/template">
+    <section>
+        <h3>{{name}} <i>{{createdDate}}</i></h3>
+        <p>{{comment}}</p>
+    </section>
+</script>
+
+<script src="Scripts.js"></script>
+
+
+
+
+<footer class="site-footer">
+    <p id="footer-content">
+    <p style="text-align: center">
+        <a href="mailto:tinkomar02@gmail.com?Subject=Reakcia_na_vÃ¡Å¡_ÄlÃ¡nok" target="_top">Martin NovÃ¡k</a>
+    </p>
+    All rights reserverd
+
+</footer>
+</body>
+</html>
