@@ -10,7 +10,7 @@
 </head>
 <p>
 <div class="top-container">
-    <a href="home.html"><h1>Autoforum.sk</h1></a>
+    <a href="homePage.html"><h1>Autoforum.sk</h1></a>
     <p>Novinky, inzercia a fÃ³rum pod jednou strÃ¡nkou.</p>
 </div>
 <H2>ÄlÃ¡nky :</H2>
@@ -68,10 +68,102 @@
         <p>{{comment}}</p>
     </section>
 </script>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/3.1.0/mustache.min.js"
+        integrity="sha256-MPgtcamIpCPKRRm1ppJHkvtNBAuE71xcOM+MmQytXi8="
+        crossorigin="anonymous">
+</script>
 <script src="Scripts.js"></script>
 
+<script>
+    // Toto je kod ulohy 3, uloha 4 je v Script.js
 
+
+        let opinions=[];
+
+    if(localStorage.myComments){
+        opinions=JSON.parse(localStorage.myComments);
+    }
+
+    console.log(opinions);
+
+    let myFrmElm=document.getElementById("myForm");
+
+    myFrmElm.addEventListener
+    ("submit",processOpnFrmData);
+
+    function processOpnFrmData(event){
+        event.preventDefault();
+        const inputs = document.getElementById("myForm").elements;
+
+
+        const nopName = inputs.namedItem("nameElm").value;
+        const nopOpn = inputs.namedItem("opnElm").value.trim();
+        const email = inputs.namedItem("emailElm").value.trim();
+        const url = inputs.namedItem("url").value.trim();
+        const LikesLexus = inputs.namedItem("Lexus").checked;
+        const LikesBMW = inputs.namedItem("BMW").checked;
+        const LikesJag = inputs.namedItem("Jaguar").checked;
+        const keywords = inputs.namedItem("keywords").value.trim().split(" ");
+        let palivo = null;
+        const specifiacation = inputs.namedItem("palivo");
+        for (let i = 0; i<specifiacation.length; i++){
+            if(specifiacation[i].checked) palivo = specifiacation[i].value;
+        }
+
+        if(nopName=="" || nopOpn==""){
+            window.alert("Please, enter both your name and opinion");
+            return;
+        }
+
+        const newOpinion =
+            {
+                name: nopName,
+                comment: nopOpn,
+                email : email,
+                url : url,
+                palivo : palivo,
+                LikesLexus: LikesLexus,
+                LikesBMW : LikesBMW,
+                LikesJag : LikesJag,
+                keywords : keywords,
+                created: new Date()
+            };
+
+        console.log("New opinion:\n "+JSON.stringify(newOpinion));
+
+        opinions.push(newOpinion);
+
+        localStorage.myComments = JSON.stringify(opinions);
+
+        window.alert("Your opinion has been stored. Look to the console");
+        console.log("New opinion added");
+        console.log(opinions);
+
+        myFrmElm.reset();
+    }
+
+
+
+    function addArticle() {
+        let newArt = document.createElement("article");
+
+           let title= document.createElement("h2");
+        title.innerHTML=document.getElementById("nameElm").value;
+        newArt.appendChild(title);
+         newArt.innerHTML +=document.getElementById("opnElm").value;
+
+         document.body.insertBefore(newArt,document.getElementById("endArts"));
+
+          newArt.setAttribute("id","cl"+nextArtIndex);
+        document.getElementById("lastArt").setAttribute("href","#cl"+nextArtIndex);
+        nextArtIndex++;
+
+
+
+    }
+
+
+</script>
 
 
 <footer class="site-footer">
